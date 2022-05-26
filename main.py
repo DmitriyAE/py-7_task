@@ -36,6 +36,18 @@ class Student:
             return
         return self.average_rating < other.average_rating
 
+    def __eq__(self, other):
+        if not isinstance(other, Student):
+            print('Сравнение некорректно')
+            return
+        return self.average_rating == other.average_rating
+
+    def __le__(self, other):
+        if not isinstance(other, Student):
+            print('Сравнение некорректно')
+            return
+        return self.average_rating <= other.average_rating
+
 
 class Mentor:
     def __init__(self, name, surname):
@@ -63,6 +75,18 @@ class Lecturer(Mentor):
             print('Сравнение некорректно')
             return
         return self.average_rating < other.average_rating
+
+    def __eq__(self, other):
+        if not isinstance(other, Lecturer):
+            print('Сравнение некорректно')
+            return
+        return self.average_rating == other.average_rating
+
+    def __le__(self, other):
+        if not isinstance(other, Lecturer):
+            print('Сравнение некорректно')
+            return
+        return self.average_rating <= other.average_rating
 
 
 class Reviewer(Mentor):
@@ -156,10 +180,18 @@ print(f'Перечень студентов:\n\n{student_1}\n\n{student_2}\n\n{s
 print(f'Перечень лекторов:\n\n{lecturer_1}\n\n{lecturer_2}\n\n{lecturer_3}')
 print()
 print(f'Результат сравнения студентов (по средним оценкам за домашнее задание): '
-      f'{student_1.name} {student_1.surname} < {student_2.name} {student_2.surname} = {student_1 > student_2}')
+      f'{student_1.name} {student_1.surname} < {student_2.name} {student_2.surname} = {student_1 < student_2}')
+print(f'Результат сравнения студентов (по средним оценкам за домашнее задание): '
+      f'{student_1.name} {student_1.surname} <= {student_2.name} {student_2.surname} = {student_1 <= student_2}')
+print(f'Результат сравнения студентов (по средним оценкам за домашнее задание): '
+      f'{student_1.name} {student_1.surname} != {student_2.name} {student_2.surname} = {student_1 != student_2}')
 print()
 print(f'Результат сравнения лекторов (по средним оценкам за лекции): '
-      f'{lecturer_1.name} {lecturer_1.surname} < {lecturer_2.name} {lecturer_2.surname} = {lecturer_1 > lecturer_2}')
+      f'{lecturer_1.name} {lecturer_1.surname} > {lecturer_2.name} {lecturer_2.surname} = {lecturer_1 > lecturer_2}')
+print(f'Результат сравнения лекторов (по средним оценкам за лекции): '
+      f'{lecturer_1.name} {lecturer_1.surname} >= {lecturer_2.name} {lecturer_2.surname} = {lecturer_1 >= lecturer_2}')
+print(f'Результат сравнения лекторов (по средним оценкам за лекции): '
+      f'{lecturer_1.name} {lecturer_1.surname} == {lecturer_2.name} {lecturer_2.surname} = {lecturer_1 == lecturer_2}')
 print()
 
 student_list = [student_1, student_2, student_3]
